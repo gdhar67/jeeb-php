@@ -1,7 +1,7 @@
 <?php
 
-// CoinGate Class
-require(dirname(__FILE__) . '/lib/CoinGate.php');
+// Jeeb Class
+require(dirname(__FILE__) . '/lib/Jeeb.php');
 
 // Exception Class
 require(dirname(__FILE__) . '/lib/APIError/APIError.php');

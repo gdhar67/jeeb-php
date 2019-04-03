@@ -1,65 +1,65 @@
-# CoinGate PHP library for API v2
+# Jeeb PHP library for API v2
 
-PHP library for CoinGate API.
+PHP library for Jeeb API.
 
-You can sign up for a CoinGate account at <https://coingate.com> for production and <https://sandbox.coingate.com> for testing (sandbox).
+You can sign up for a Jeeb account at <https://jeeb.com> for production and <https://sandbox.jeeb.com> for testing (sandbox).
 
-Please note, that for Sandbox you must generate separate API credentials on <https://sandbox.coingate.com>. API credentials generated on <https://coingate.com> will not work for Sandbox mode.
+Please note, that for Sandbox you must generate separate API credentials on <https://sandbox.jeeb.com>. API credentials generated on <https://jeeb.com> will not work for Sandbox mode.
 
 ## Composer
 
 You can install library via [Composer](http://getcomposer.org/). Run the following command in your terminal:
 
 ```bash
-composer require coingate/coingate-php
+composer require jeeb/jeeb-php
 ```
 
 ## Manual Installation
 
-Donwload [latest release](https://github.com/coingate/coingate-php/releases) and include `init.php` file.
+Donwload [latest release](https://github.com/jeeb/jeeb-php/releases) and include `init.php` file.
 
 ```php
-require_once('/path/to/coingate-php/init.php');
+require_once('/path/to/jeeb-php/init.php');
 ```
 
 ## Getting Started
 
-Usage of CoinGate PHP library.
+Usage of Jeeb PHP library.
 
-### Setting up CoinGate library
+### Setting up Jeeb library
 
 #### Setting default authentication
 
 ```php
-use CoinGate\CoinGate;
+use Jeeb\Jeeb;
 
-\CoinGate\CoinGate::config(array(
+\Jeeb\Jeeb::config(array(
     'environment'               => 'sandbox', // sandbox OR live
     'auth_token'                => 'YOUR_AUTH_TOKEN',
     'curlopt_ssl_verifypeer'    => TRUE // default is false
 ));
 
-// $order = \CoinGate\Merchant\Order::find(7294);
+// $order = \Jeeb\Merchant\Order::find(7294);
 ```
 
 #### Setting authentication individually
 
 ```php
-use CoinGate\CoinGate;
+use Jeeb\Jeeb;
 
-# \CoinGate\Merchant\Order::find($orderId, $options = array(), $authentication = array())
+# \Jeeb\Merchant\Order::find($orderId, $options = array(), $authentication = array())
 
-$order = \CoinGate\Merchant\Order::find(1087999, array(), array(
+$order = \Jeeb\Merchant\Order::find(1087999, array(), array(
     'environment' => 'sandbox', // sandbox OR live
     'auth_token' => 'YOUR_AUTH_TOKEN'));
 ```
 
 ### Creating Merchant Order
 
-https://developer.coingate.com/docs/create-order
+https://developer.jeeb.com/docs/create-order
 
 ```php
-use CoinGate\CoinGate;
+use Jeeb\Jeeb;
 
 $post_params = array(
                    'order_id'          => 'YOUR-CUSTOM-ORDER-ID-115',
@@ -73,7 +73,7 @@ $post_params = array(
                    'description'       => 'Apple Iphone 6'
                );
 
-$order = \CoinGate\Merchant\Order::create($post_params);
+$order = \Jeeb\Merchant\Order::create($post_params);
 
 if ($order) {
     echo $order->status;
@@ -86,13 +86,13 @@ if ($order) {
 
 ### Getting Merchant Order
 
-https://developer.coingate.com/docs/get-order
+https://developer.jeeb.com/docs/get-order
 
 ```php
-use CoinGate\CoinGate;
+use Jeeb\Jeeb;
 
 try {
-    $order = \CoinGate\Merchant\Order::find(7294);
+    $order = \Jeeb\Merchant\Order::find(7294);
 
     if ($order) {
       var_dump($order);
@@ -108,12 +108,12 @@ try {
 ### Test API Credentials
 
 ```php
-$testConnection = \CoinGate\CoinGate::testConnection(array(
+$testConnection = \Jeeb\Jeeb::testConnection(array(
   'environment'   => 'sandbox',
   'auth_token'    => 'YOUR_AUTH_TOKEN'
 ));
 
 if ($testConnection !== true) {
-  echo $testConnection; // CoinGate\BadCredentials: BadCredentials Not found App by Access-Key
+  echo $testConnection; // Jeeb\BadCredentials: BadCredentials Not found App by Access-Key
 }
 ```
