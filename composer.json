@@ -1,0 +1,34 @@
+{
+  "name": "jeeb/jeeb-php",
+  "type": "library",
+  "description": "Jeeb library for PHP",
+  "version": "1.0.0",
+  "keywords": [
+    "jeeb",
+    "bitcoin",
+    "litecoin",
+    "merchant",
+    "gateway",
+    "payment"
+  ],
+  "homepage": "https://jeeb.io",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jeeb and contributors",
+      "homepage": "https://github.com/gdhar67/jeeb-php"
+    }
+  ],
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.8.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Jeeb\\": "lib/"
+    }
+  }
+}
