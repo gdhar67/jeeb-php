@@ -3,7 +3,6 @@
   "type": "library",
   "description": "Jeeb library for PHP",
   "version": "1.0.0",
-  "minimum-stability":"dev",
   "keywords": [
     "jeeb",
     "bitcoin",
